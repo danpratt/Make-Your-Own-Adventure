@@ -45,6 +45,10 @@ class StoryNodeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: Implement to push the next story node.
+        let nextStoryNode = storyNode.storyNodeForIndex(index: indexPath.row)
+        let nextStoryNodeVC = storyboard!.instantiateViewController(withIdentifier: "StoryNodeViewController") as! StoryNodeViewController
+        nextStoryNodeVC.storyNode = nextStoryNode
+        navigationController!.pushViewController(nextStoryNodeVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
